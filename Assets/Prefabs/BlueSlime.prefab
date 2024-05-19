@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 2126602229005845599}
   - component: {fileID: 1211665049811969117}
   - component: {fileID: -6166317956866407855}
+  - component: {fileID: 7387727764021183620}
+  - component: {fileID: 7246873989853697711}
+  - component: {fileID: 5877809545950478395}
   m_Layer: 0
   m_Name: BlueSlime
   m_TagString: Untagged
@@ -197,3 +200,44 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7387727764021183620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8257347758630349071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4af239e08b97ef4a83309ceb15fbcc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 4
+  deathVFXPrefab: {fileID: 1777291636640227614, guid: 414daedb1c75a594992821e0ebc053a0, type: 3}
+--- !u!114 &7246873989853697711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8257347758630349071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6357dd8c6660a64bb8b9a9048c04105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackTime: 0.1
+--- !u!114 &5877809545950478395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8257347758630349071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe47d9ea0547e474193607674b69d634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whiteFlashMat: {fileID: 2100000, guid: 411b1b4267232dc4f897934331c52e8f, type: 2}
+  restoreDefaultMatTime: 0.2
