@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5285708727557582632}
   - component: {fileID: 1416757480887186880}
   - component: {fileID: 3463266208747486786}
+  - component: {fileID: -6541181276612360001}
   m_Layer: 0
   m_Name: assets_11
   m_TagString: Untagged
@@ -120,3 +121,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0.4285612, y: 0}
   m_Size: {x: 4.2159176, y: 6.5281544}
   m_Direction: 0
+--- !u!114 &-6541181276612360001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6908242821192727876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0385101e91d7a24297cc14de21fc26d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyVFX: {fileID: 6107617463687431411, guid: 06b4554eaa5dd5248984e0c1bb8c52c9, type: 3}
