@@ -7,6 +7,8 @@ public class PlayerController : Singleton<PlayerController>
     public bool FacingLeft { get { return facingLeft; } }
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
+    [SerializeField] private SpriteRenderer playerSpriteRenderer;
+    [SerializeField] private Knockback playerKnockback;
     [SerializeField] private TrailRenderer myTrailRenderer;
     [SerializeField] private Transform weaponCollider;
     
@@ -32,6 +34,11 @@ public class PlayerController : Singleton<PlayerController>
     {
         playerControls.Combat.Dash.performed += _ => Dash();
         startingMoveSpeed = moveSpeed;
+        PlayerHealth.onPlayerDeath += DisableMovement;
+    }
+
+    public void DisableMovement() {
+        playerControls.Disable();
     }
 
     private void OnEnable()
@@ -65,6 +72,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Move()
     {
+        if(playerKnockback.gettingKnockedBack) {return ;}
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
