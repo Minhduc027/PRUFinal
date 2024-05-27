@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 [RequireComponent(typeof(Knockback), typeof(Flash))]
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : Singleton<PlayerHealth>
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
@@ -14,11 +15,13 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Knockback knockback;
     [SerializeField] private Flash flash;
 
+    public bool isDead {  get; private set; }
     public delegate void OnPlayerDeath();
     public static event OnPlayerDeath onPlayerDeath;
 
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
         canTakeDamage = true;
         currentHealth = maxHealth;
     }
@@ -53,8 +56,24 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void CheckPlayerDeath(){
-        if(currentHealth <= 0 && onPlayerDeath != null) {
-            onPlayerDeath();
+        if(currentHealth <= 0 && !isDead) {
+            Dead();
         }
     }
+    readonly int DEATH_HASH = Animator.StringToHash("Death");
+    public void Dead()
+    {
+        isDead = true;
+        Destroy(ActiveWeapon.Instance.gameObject);
+        currentHealth = 0;
+        GetComponent<Animator>().SetTrigger(DEATH_HASH);
+        StartCoroutine(DeadLoadRoutine());
+    }
+    private IEnumerator DeadLoadRoutine()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
+        SceneManager.LoadScene("SampleScene");
+    }
+
 }
