@@ -15,10 +15,7 @@ public class Staff : MonoBehaviour, IWeapon
     {
         Debug.Log("Staff Attack");
     }
-    public WeaponInfo GetWeaponInfo()
-    {
-        return weaponInfo;
-    }
+    
 
     private void MouseFollowWithOffset()
     {
@@ -35,5 +32,9 @@ public class Staff : MonoBehaviour, IWeapon
         {
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
+    }
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
     }
 }
