@@ -14,32 +14,36 @@ public class EnemyHealth : MonoBehaviour
 
     private void Awake()
     {
-        knockback = GetComponent<Knockback>();
         flash = GetComponent<Flash>();
+        knockback = GetComponent<Knockback>();
     }
 
-    private void Start() {
+    private void Start()
+    {
         currentHealth = startingHealth;
     }
 
-    public void TakeDamage(int damage) {
+    public void TakeDamage(int damage)
+    {
         currentHealth -= damage;
         knockback.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
-        Debug.Log("Current health: " + currentHealth);
         StartCoroutine(flash.FlashRoutine());
         StartCoroutine(CheckDetectDeathRoutine());
     }
+
     private IEnumerator CheckDetectDeathRoutine()
     {
         yield return new WaitForSeconds(flash.GetRestoreMatTime());
         DetectDeath();
     }
 
-    public void DetectDeath() {
-        if (currentHealth <= 0) {
+    public void DetectDeath()
+    {
+        if (currentHealth <= 0)
+        {
+            GetComponent<PickUpSpawner>().DropItems();
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            Debug.Log("Killed!");
         }
     }
 }

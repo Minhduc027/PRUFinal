@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 310506273992889390}
   - component: {fileID: 8840534213189901016}
   - component: {fileID: 7274179228295330531}
-  m_Layer: 0
+  - component: {fileID: 6499111411697143870}
+  - component: {fileID: 6716849503286210309}
+  m_Layer: 3
   m_Name: assets_27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,6 +119,34 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.065852165, y: 0.138291}
-  m_Size: {x: 3.556757, y: 3.556757}
-  m_Direction: 0
+  m_Offset: {x: -0.03, y: -0.07}
+  m_Size: {x: 2.25, y: 1.99}
+  m_Direction: 1
+--- !u!114 &6499111411697143870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651617902667799919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0385101e91d7a24297cc14de21fc26d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyVFX: {fileID: 6107617463687431411, guid: d86fca1527e3f0d4b9235c362fdc663f, type: 3}
+--- !u!114 &6716849503286210309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651617902667799919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462dddc9699ee684fb3f30c781803f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoldCoin: {fileID: 5579938197001214850, guid: c3cf15ad961a6d943b1256e7c74a88d1, type: 3}
+  Health: {fileID: 0}
+  Stamina: {fileID: 0}

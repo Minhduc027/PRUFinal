@@ -17,7 +17,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     public bool isDead {  get; private set; }
     public delegate void OnPlayerDeath();
-    public static event OnPlayerDeath onPlayerDeath;
+    //public static event OnPlayerDeath onPlayerDeath;
 
     protected override void Awake()
     {
@@ -30,14 +30,23 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         
         EnemyAI enemyAI = other.gameObject.GetComponent<EnemyAI>();
-        if (enemyAI && canTakeDamage) {
-            TakeDamage(1);
-            knockback.GetKnockedBack(other.gameObject.transform, knockBackThrustAmount);
-            StartCoroutine(flash.FlashRoutine());
+        if (enemyAI) {
+            TakeDamage(1, other.transform);
         }
     }
+    public void HealPlayer()
+    {
+        if(currentHealth < maxHealth)
+        {
+            currentHealth += 1;
+        }
+        PlayerCanvasController.Instance.UpdateHealthBarDisplay(currentHealth, maxHealth);
+    }
 
-    private void TakeDamage (int damageAmount) {
+    public void TakeDamage (int damageAmount, Transform hitTransform) {
+        if(!canTakeDamage) { return; }
+        knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
+        StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
         currentHealth -= damageAmount;
         StartCoroutine(DamageRecoveryRoutine());
@@ -74,6 +83,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
         SceneManager.LoadScene("SampleScene");
+        PlayerCanvasController.Instance.UpdateHealthBarDisplay(maxHealth, maxHealth);
+        PlayerCanvasController.Instance.UpdateCoinDisplay(0);
     }
 
 }
