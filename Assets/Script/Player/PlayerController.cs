@@ -30,6 +30,7 @@ public class PlayerController : Singleton<PlayerController>
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         mySpriteRender = GetComponent<SpriteRenderer>();
+        transform.position = GameDataManager.Instance.CurrentLocation;
     }
     private void Start()
     {

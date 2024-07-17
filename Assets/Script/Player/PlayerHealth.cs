@@ -80,6 +80,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
+        GameDataManager.Instance.SetDefaultValue();
         SceneManager.LoadScene("SampleScene");
     }
 
