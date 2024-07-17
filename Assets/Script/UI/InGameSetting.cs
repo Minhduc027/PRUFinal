@@ -4,6 +4,7 @@ public class InGameSetting : MonoBehaviour
 {
     public void OnSaveCheckPointClicked() {
         GameDataManager.Instance.SaveData();
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
@@ -18,6 +19,7 @@ public class InGameSetting : MonoBehaviour
 
     public void OnRestartClicked() {
         GameDataManager.Instance.SetDefaultValue();
-        SceneManager.LoadSceneAsync(1);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
     }
 }

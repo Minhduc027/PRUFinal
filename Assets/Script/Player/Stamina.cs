@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Stamina : Singleton<Stamina>
+public class Stamina : BaseSingleton<Stamina>
 {
     public int CurrentStamina { get; private set; }
 
@@ -14,7 +14,7 @@ public class Stamina : Singleton<Stamina>
     private int maxStamina;
     const string STAMINA_CONTAINER_TEXT = "Stamina Container";
 
-    protected override void Awake() {
+    protected void Awake() {
         base.Awake();
         
         maxStamina = startingStamina;

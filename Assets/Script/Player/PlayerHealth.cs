@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 [RequireComponent(typeof(Knockback), typeof(Flash))]
-public class PlayerHealth : Singleton<PlayerHealth>
+public class PlayerHealth : BaseSingleton<PlayerHealth>
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
@@ -19,12 +19,12 @@ public class PlayerHealth : Singleton<PlayerHealth>
     public delegate void OnPlayerDeath();
     //public static event OnPlayerDeath onPlayerDeath;
 
-    protected override void Awake()
+    protected void Awake()
     {
         base.Awake();
         canTakeDamage = true;
         maxHealth =  GameDataManager.Instance.PlayerMaxHP;
-        currentHealth = maxHealth;
+        currentHealth = GameDataManager.Instance.CurrentPlayerHP;
         PlayerCanvasController.Instance.UpdateHealthBarDisplay(currentHealth, maxHealth);
     }
 
@@ -79,9 +79,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private IEnumerator DeadLoadRoutine()
     {
         yield return new WaitForSeconds(2);
-        Destroy(gameObject);
-        GameDataManager.Instance.SetDefaultValue();
         PlayerCanvasController.Instance.GameOverUI();
+        Time.timeScale = 0;
     }
 
     public void AddHealth(int health) {

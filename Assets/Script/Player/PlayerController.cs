@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : Singleton<PlayerController>
+public class PlayerController : BaseSingleton<PlayerController>
 {
     public bool FacingLeft { get { return facingLeft; } }
     [SerializeField] private float moveSpeed = 1f;
@@ -23,7 +23,7 @@ public class PlayerController : Singleton<PlayerController>
     private bool facingLeft = false;
     private bool isDashing = false;
 
-    protected override void Awake()
+    protected void Awake()
     {
         base.Awake();
         playerControls = new PlayerControls();
@@ -52,7 +52,9 @@ public class PlayerController : Singleton<PlayerController>
     private void Update()
     {
         PlayerInput();
-        GameDataManager.Instance.CurrentLocation = this.transform.position;
+        if  (this.gameObject != null) {
+            GameDataManager.Instance.CurrentLocation = this.transform.position;
+        }
         GameDataManager.Instance.LastWave = SceneManager.GetActiveScene().buildIndex;
     }
 

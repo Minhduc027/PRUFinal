@@ -13,12 +13,12 @@ public class MenuController : MonoBehaviour
         }
     }
     public void OnPlayBtnClicked() {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene(1);
     }
 
     public void OnContinueBtnClicked() {
         int wave = GameDataManager.Instance.LastWave;
-        SceneManager.LoadSceneAsync(wave);
+        SceneManager.LoadScene(wave);
     }
 
     public void OnExitBtnClicked() {
