@@ -8,7 +8,6 @@ public class Stamina : Singleton<Stamina>
     public int CurrentStamina { get; private set; }
 
     [SerializeField] private Sprite fullStaminaImage, emptyStaminaImage;
-    //[SerializeField] private int timeBetweenStaminaRefresh = 3;
 
     private Transform staminaContainer;
     private int startingStamina = 3;
@@ -17,9 +16,9 @@ public class Stamina : Singleton<Stamina>
 
     protected override void Awake() {
         base.Awake();
-
+        
         maxStamina = startingStamina;
-        CurrentStamina = startingStamina;
+        CurrentStamina = GameDataManager.Instance.CurrentStamina;
     }
 
     private void Start() {
@@ -27,13 +26,13 @@ public class Stamina : Singleton<Stamina>
     }
 
     public void UseStamina() {
-        CurrentStamina--;
+        RemoveStamina(1);
         UpdateStaminaImages();
     }
 
     public void RefreshStamina() {
         if (CurrentStamina < maxStamina) {
-            CurrentStamina++;
+            AddStamina(1);
         }
         UpdateStaminaImages();
     }
@@ -55,10 +54,15 @@ public class Stamina : Singleton<Stamina>
                 staminaContainer.GetChild(i).GetComponent<Image>().sprite = emptyStaminaImage;
             }
         }
+    }
 
-        /*if (CurrentStamina < maxStamina) {
-            StopAllCoroutines();
-            StartCoroutine(RefreshStaminaRoutine());
-        }*/
+    private void AddStamina(int stamina) {
+        CurrentStamina += stamina;
+        GameDataManager.Instance.CurrentStamina = CurrentStamina;
+    }
+
+    private void RemoveStamina(int stamina) {
+        CurrentStamina -= stamina;
+        GameDataManager.Instance.CurrentStamina = CurrentStamina;
     }
 }
