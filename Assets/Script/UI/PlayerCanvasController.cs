@@ -9,6 +9,7 @@ public class PlayerCanvasController : BaseSingleton<PlayerCanvasController>
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private GameObject pauseUI;
+    [SerializeField] private GameObject gameOverUI;
     private int currentCoin = 0;
     // Start is called before the first frame update
     private void Awake()
@@ -39,6 +40,13 @@ public class PlayerCanvasController : BaseSingleton<PlayerCanvasController>
         if (!pauseUI.activeInHierarchy) {
             Time.timeScale = 0;
             pauseUI.SetActive(true);
+        }
+    }
+
+    public void GameOverUI () {
+        if (!gameOverUI.activeInHierarchy) {
+            Time.timeScale = 0;
+            gameOverUI.SetActive(true);
         }
     }
 }
