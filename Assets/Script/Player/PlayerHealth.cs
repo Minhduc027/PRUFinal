@@ -80,7 +80,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
-        SceneManager.LoadScene("SampleScene");
+        GameDataManager.Instance.SetDefaultValue();
+        PlayerCanvasController.Instance.GameOverUI();
     }
 
     public void AddHealth(int health) {
