@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActiveInventory : Singleton<ActiveInventory>
+public class ActiveInventory : BaseSingleton<ActiveInventory>
 {
     private int activeSlotIndexNum = 0;
 
     private PlayerControls playerControls;
 
-    protected override void Awake()
+    private void Awake()
     {
         base.Awake();
         playerControls = new PlayerControls();

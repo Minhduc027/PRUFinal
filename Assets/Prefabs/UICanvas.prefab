@@ -429,17 +429,17 @@ GameObject:
   - component: {fileID: 6329621370951329106}
   - component: {fileID: 4892025245874351455}
   - component: {fileID: 2992526819216464862}
-  - component: {fileID: 2647527744286332457}
   - component: {fileID: 6810970798678436159}
   - component: {fileID: 4430629275913655426}
   - component: {fileID: 8059685960467930616}
+  - component: {fileID: 5838277601411443054}
   m_Layer: 5
   m_Name: Game over menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6329621370951329106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -499,18 +499,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2647527744286332457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528286863634408410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bfd35aed161fcd06a3c882634a09128, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6810970798678436159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,6 +563,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5838277601411443054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528286863634408410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 451441a2e5f1828439b7dd79507dde50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &706401516151951952
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,10 +610,10 @@ RectTransform:
   - {fileID: 4427632534097201854}
   m_Father: {fileID: 6329621370951329106}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1596.357, y: -268.555}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2200149692195228591
 MonoBehaviour:
@@ -659,9 +659,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2647527744286332457}
-        m_TargetAssemblyTypeName: InGameSetting, Assembly-CSharp
-        m_MethodName: OnSaveCheckPointClicked
+      - m_Target: {fileID: 5838277601411443054}
+        m_TargetAssemblyTypeName: GameOverUI, Assembly-CSharp
+        m_MethodName: ReturnMenuBtnClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1834,6 +1834,7 @@ MonoBehaviour:
   healthSlider: {fileID: 2889185885610089458}
   coinText: {fileID: 1683241760233342751}
   pauseUI: {fileID: 6997634205528089098}
+  gameOverUI: {fileID: 528286863634408410}
 --- !u!1 &3731272933235451656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2908,10 +2909,10 @@ RectTransform:
   - {fileID: 2463102936436823994}
   m_Father: {fileID: 6329621370951329106}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1986.357, y: -268.555}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3757648226466553287
 MonoBehaviour:
@@ -2957,9 +2958,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2647527744286332457}
-        m_TargetAssemblyTypeName: InGameSetting, Assembly-CSharp
-        m_MethodName: OnRestartClicked
+      - m_Target: {fileID: 5838277601411443054}
+        m_TargetAssemblyTypeName: GameOverUI, Assembly-CSharp
+        m_MethodName: RestartBtnClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
