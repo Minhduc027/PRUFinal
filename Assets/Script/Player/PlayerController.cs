@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -50,6 +51,8 @@ public class PlayerController : Singleton<PlayerController>
     private void Update()
     {
         PlayerInput();
+        GameDataManager.Instance.CurrentLocation = this.transform.position;
+        GameDataManager.Instance.LastWave = SceneManager.GetActiveScene().buildIndex;
     }
 
     private void FixedUpdate()

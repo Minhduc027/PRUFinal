@@ -89,7 +89,7 @@ public class GameDataManager : BaseSingleton<GameDataManager>
         playerMaxHP = 10;
         currentPlayerHP=  playerMaxHP;
         currentStamina = 3;
-        lastWave  = 1;
+        lastWave  = 0;
         currentLocation = new Vector2 (0,0);
     }
 
