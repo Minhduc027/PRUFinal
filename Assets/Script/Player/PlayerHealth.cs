@@ -23,7 +23,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         base.Awake();
         canTakeDamage = true;
+        maxHealth =  GameDataManager.Instance.PlayerMaxHP;
         currentHealth = maxHealth;
+        PlayerCanvasController.Instance.UpdateHealthBarDisplay(currentHealth, maxHealth);
     }
 
     void OnCollisionStay2D(Collision2D other)
@@ -36,11 +38,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     }
     public void HealPlayer()
     {
-        if(currentHealth < maxHealth)
-        {
-            currentHealth += 1;
-        }
-        PlayerCanvasController.Instance.UpdateHealthBarDisplay(currentHealth, maxHealth);
+        Healing(1);
     }
 
     public void TakeDamage (int damageAmount, Transform hitTransform) {
@@ -48,7 +46,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
-        currentHealth -= damageAmount;
+        LostHealth(damageAmount);
         StartCoroutine(DamageRecoveryRoutine());
         PlayerCanvasController.Instance.UpdateHealthBarDisplay(currentHealth, maxHealth);
         CheckPlayerDeath();
@@ -60,7 +58,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     }
 
     private void Healing (int healingAmount) {
-        currentHealth +=  healingAmount;
+        AddHealth(healingAmount);
         PlayerCanvasController.Instance.UpdateHealthBarDisplay(currentHealth, maxHealth);
     }
 
@@ -74,7 +72,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         isDead = true;
         Destroy(ActiveWeapon.Instance.gameObject);
-        currentHealth = 0;
+        ResetHealth();
         GetComponent<Animator>().SetTrigger(DEATH_HASH);
         StartCoroutine(DeadLoadRoutine());
     }
@@ -83,8 +81,24 @@ public class PlayerHealth : Singleton<PlayerHealth>
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
         SceneManager.LoadScene("SampleScene");
-        PlayerCanvasController.Instance.UpdateHealthBarDisplay(maxHealth, maxHealth);
-        PlayerCanvasController.Instance.UpdateCoinDisplay(0);
+    }
+
+    public void AddHealth(int health) {
+        if (currentHealth < maxHealth) {
+            currentHealth += health;
+            GameDataManager.Instance.CurrentPlayerHP = currentHealth;
+        }
+    }
+
+    public void LostHealth(int health) {
+        if (currentHealth - health >=0) {
+            currentHealth -= health;
+            GameDataManager.Instance.CurrentPlayerHP = currentHealth;
+        }
+    }
+
+    public void ResetHealth() {
+        this.currentHealth = 0;
     }
 
 }

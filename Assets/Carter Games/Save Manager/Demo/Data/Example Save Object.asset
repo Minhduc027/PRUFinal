@@ -16,13 +16,13 @@ MonoBehaviour:
   saveKey: Example
   playerName:
     key: examplePlayerName
-    value: Isabelle
+    value: 
   playerHealth:
     key: examplePlayerHealth
-    value: -102
+    value: 0
   playerPosition:
     key: examplePlayerPosition
     value: {x: 0, y: 0, z: 0}
   playerShield:
     key: examplePlayerShield
-    value: 4
+    value: 0
