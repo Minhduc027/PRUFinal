@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bebcbe10ecc0b5563a799c0b29111a9c, type: 3}
+  m_Name: PlayerInfoSaveObject
+  m_EditorClassIdentifier: 
+  isExpanded: 0
+  saveKey: 
+  lastLocation:
+    key: bb224224-1e91-4a54-98a2-1de38b463760
+    value: {x: 0, y: 0}
+  wave:
+    key: 716e3fe8-352e-41ba-9224-2c87d75cf214
+    value: 0
+  currentHp:
+    key: 73000e2e-b83f-4b6e-a27c-0d82581e7afa
+    value: 0
+  maxHp:
+    key: b1f99ed4-79aa-4e0e-b498-26df97757c21
+    value: 0
+  stamina:
+    key: 8ea184dd-8578-430c-8d12-262bc460054a
+    value: 0
