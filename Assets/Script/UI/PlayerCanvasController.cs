@@ -17,7 +17,7 @@ public class PlayerCanvasController : BaseSingleton<PlayerCanvasController>
         var maxHealth = GameDataManager.Instance.PlayerMaxHP;
         currentCoin = GameDataManager.Instance.Coin;
         UpdateHealthBarDisplay(maxHealth, maxHealth);
-        AddCoinDisplay(currentCoin);
+        UpdateCoinDisplay(currentCoin);
     }
     public void UpdateHealthBarDisplay(float currentHealth, float maxHealth) {
         float healthPercent = currentHealth/maxHealth;

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : Singleton<CameraController>
+public class CameraController : BaseSingleton<CameraController>
 {
     private CinemachineVirtualCamera cinemachineVirtualCamera;
     private void Start()

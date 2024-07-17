@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActiveWeapon : Singleton<ActiveWeapon>
+public class ActiveWeapon : BaseSingleton<ActiveWeapon>
 {
     public MonoBehaviour CurrentActiveWeapon {  get; private set; }
     private PlayerControls playerControls;
@@ -10,7 +10,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     private float timeBetweenAttacks;
     private bool attackButtonDown, isAttacking = false;
 
-    protected override void Awake()
+    protected void Awake()
     {
         base.Awake();
 
