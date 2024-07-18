@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bebcbe10ecc0b5563a799c0b29111a9c, type: 3}
   m_Name: PlayerInfoSaveObject
   m_EditorClassIdentifier: 
-  isExpanded: 0
+  isExpanded: 1
   saveKey: 
   lastLocation:
     key: bb224224-1e91-4a54-98a2-1de38b463760
@@ -28,4 +28,7 @@ MonoBehaviour:
     value: 0
   stamina:
     key: 8ea184dd-8578-430c-8d12-262bc460054a
+    value: 0
+  coin:
+    key: 4bbe9f45-3605-4ee9-a96e-88fe406d7dbd
     value: 0
