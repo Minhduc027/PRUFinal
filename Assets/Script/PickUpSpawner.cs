@@ -9,25 +9,29 @@ public class PickUpSpawner : MonoBehaviour
     public void DropItems()
     {
         int randomNum = Random.Range(1, 4);
+        GameObject itemToSpawn = null;
 
-        if (randomNum == 1)
+        switch (randomNum)
         {
-            Instantiate(Health, transform.position, Quaternion.identity);
+            case 1:
+                itemToSpawn = Health;
+                break;
+            case 2:
+                itemToSpawn = Stamina;
+                break;
+            case 3:
+                itemToSpawn = GoldCoin;
+                int randomAmountOfGold = Random.Range(1, 5);
+                for (int i = 0; i < randomAmountOfGold; i++)
+                {
+                    Instantiate(itemToSpawn, transform.position, Quaternion.identity);
+                }
+                return; // Exit the method after spawning the gold coins
         }
 
-        if (randomNum == 2)
+        if (itemToSpawn != null)
         {
-            Instantiate(Stamina, transform.position, Quaternion.identity);
-        }
-
-        if (randomNum == 3)
-        {
-            int randomAmountOfGold = Random.Range(1, 5);
-
-            for (int i = 0; i < randomAmountOfGold; i++)
-            {
-                Instantiate(GoldCoin, transform.position, Quaternion.identity);
-            }
+            Instantiate(itemToSpawn, transform.position, Quaternion.identity);
         }
     }
 }

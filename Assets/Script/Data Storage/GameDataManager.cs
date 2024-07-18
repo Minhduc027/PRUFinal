@@ -86,7 +86,7 @@ public class GameDataManager : BaseSingleton<GameDataManager>
     }
 
     public void SetDefaultValue() {
-        playerMaxHP = 3;
+        playerMaxHP = 5;
         currentPlayerHP =  playerMaxHP;
         currentStamina = 3;
         lastWave  = 0;

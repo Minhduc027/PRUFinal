@@ -9,7 +9,7 @@ public class InGameSetting : MonoBehaviour
     }
 
     public void OnExitClicked() {
-        Debug.Log("Exit");
+        Application.Quit();
     }
     public void OnResumeClicked() {
         Time.timeScale = 1;

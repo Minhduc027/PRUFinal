@@ -46,6 +46,7 @@ public class Stamina : BaseSingleton<Stamina>
     }*/
 
     private void UpdateStaminaImages() {
+
         for (int i = 0; i < maxStamina; i++)
         {
             if (i <= CurrentStamina - 1) {
@@ -56,7 +57,7 @@ public class Stamina : BaseSingleton<Stamina>
         }
     }
 
-    private void AddStamina(int stamina) {
+    public void AddStamina(int stamina) {
         CurrentStamina += stamina;
         GameDataManager.Instance.CurrentStamina = CurrentStamina;
     }

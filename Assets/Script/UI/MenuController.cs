@@ -22,7 +22,7 @@ public class MenuController : MonoBehaviour
     }
 
     public void OnExitBtnClicked() {
-
+        Application.Quit();
     }
 
 }
